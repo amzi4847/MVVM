@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<variable
+    name="VmSubscribers"
+    type="com.suraj.mvvm.SubscriberViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/ed_sub_name"
+            android:text="@={VmSubscribers.sub_name}"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="12dp"
+            android:imeOptions="actionNext"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/ed_sub_email"
+            android:text="@={VmSubscribers.sub_email}"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:imeOptions="actionDone"
+            android:inputType="textEmailAddress"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@={VmSubscribers.sub_btn_clear}"
+                android:onClick="@{()->VmSubscribers.clearOrDelete()}"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_clearAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@={VmSubscribers.sub_btn_clearAll}"
+                android:onClick="@{()->VmSubscribers.clearOrDelete()}"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btn_insert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="@={VmSubscribers.sub_btn_save}"
+                android:onClick="@{()->VmSubscribers.saveOrUpdate()}"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp" />
+
+
+    </LinearLayout>
+</layout>
